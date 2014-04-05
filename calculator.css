@@ -18,6 +18,8 @@ h1 {
     margin: 20px auto;
     border: 8px ridge maroon;
     background-color: #aaa;
+    box-shadow: 10px 10px 5px #888;
+    border-radius: 10px;
     
 }
 
@@ -32,6 +34,7 @@ h1 {
 
 #displaySection input {
     font-size: 20pt;
+    text-align: right;
     width: 95%;
    
 }
@@ -57,8 +60,8 @@ h1 {
     width: 20%;
     height: 80%;
     margin: 2.5% 2.4%;
-    
-    border: 2px outset white;
+    border-radius: 10px;
+    border: 3px outset white;
     
 }
 
