@@ -25,12 +25,7 @@ function addOperator(num) {
  document.getElementById("display").value += num;
 }
            
- function mouseDown() {
-  
-     this.style.backgroundColor="#333333";
-     this.style.border="3px solid blue";
- }
-    
+ 
 
 
     
