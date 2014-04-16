@@ -50,6 +50,7 @@ h1 {
     
 }
 
+
 .buttonRow input {
     
     display:block;
@@ -67,7 +68,7 @@ h1 {
 }
 
 .buttonRow input:hover {
-    background-color: purple;
+    background-color: maroon;
 }
 
 .buttonRow #close  {
@@ -79,6 +80,11 @@ h1 {
 }
 
 .buttonRow #close:hover  {
-    background-color: purple;
+    background-color: maroon;
     
+}
+
+
+.buttonRow input.pressed {
+    background-color: gray;   
 }
