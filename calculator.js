@@ -25,7 +25,7 @@ window.calculatorApp = {
       if(calculatorState.pendingOperator) {
         this.clickEquals();   
       }
-      else {
+      else if(calculatorState.currentValue !== ''){
          calculatorState.previousValue = calculatorState.currentValue; 
       }
       calculatorState.pendingOperator = op;
