@@ -11,37 +11,37 @@
        <h1>Janet's Calculator</h1>      
         <div id="calculatorBody"> 
             <div id="displaySection">
-                <input type="text" id="display" name="display" readonly="true" value="0.">
+                <input type="text" id="display" name="display" readonly="true" value="0">
             </div> 
             <div id="buttonRow1" class="buttonRow"> 
-                <input type="button" id="clear" name="clear" value="c" onclick="clearNumbers()" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="clear" name="clear" value="c" onclick="calculatorApp.clickClear()" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
                 <input type="button" id="ce" name="ce" value="ce" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
                 <input type="button" id="plusminus" name="plusminus" value="+/-" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
                 <input type="button" id="close" name="close" value="x" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
             </div> 
             <div id="buttonRow2" class="buttonRow"> 
-                <input type="button" id="num7" name="num7" onclick="numPressed(value);" value="7" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="num8" name="num8" value="8" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="num9" name="num9" value="9" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="multiply" name="multiply" value="*" onclick="addOperator(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num7" name="num7" onclick="calculatorApp.clickDigit(7)" value="7" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num8" name="num8" value="8" onclick="calculatorApp.clickDigit(8)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num9" name="num9" value="9" onclick="calculatorApp.clickDigit(9)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="multiply" name="multiply" value="*" onclick="calculatorApp.clickOperator('*')" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
             </div> 
             <div id="buttonRow3" class="buttonRow"> 
-                <input type="button" id="num4" name="num4" value="4" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="num5" name="num5" value="5" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="num6" name="num6" value="6" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="divide" name="divide" value="/" onclick="addOperator(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num4" name="num4" value="4" onclick="calculatorApp.clickDigit(4)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num5" name="num5" value="5" onclick="calculatorApp.clickDigit(5)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num6" name="num6" value="6" onclick="calculatorApp.clickDigit(6)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="divide" name="divide" value="/" onclick="calculatorApp.clickOperator('/')" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
             </div> 
             <div id="buttonRow4" class="buttonRow"> 
-                <input type="button" id="num1" name="num1" value="1" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="num2" name="num2" value="2" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="num3" name="num3" value="3" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="plus" name="plus" value="+" onclick="addOperator(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num1" name="num1" value="1" onclick="calculatorApp.clickDigit(1)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num2" name="num2" value="2" onclick="calculatorApp.clickDigit(2)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num3" name="num3" value="3" onclick="calculatorApp.clickDigit(3)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="plus" name="plus" value="+" onclick="calculatorApp.clickOperator('+')" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
             </div> 
             <div id="buttonRow5" class="buttonRow"> 
-                <input type="button" id="num0" name="num0" value="0" onclick="numPressed(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="decimal" name="decimal" value="." class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="equal" name="equal" value="=" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
-                <input type="button" id="minus" name="minus" value="-"  onclick="addOperator(value);" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="num0" name="num0" value="0" onclick="calculatorApp.clickDigit(0)" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="decimal" name="decimal" value="." class="numberButton" onclick="calculatorApp.clickDecimal(0)" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="equal" name="equal" value="=" class="numberButton" onclick="calculatorApp.clickEquals()" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
+                <input type="button" id="minus" name="minus" value="-"  onclick="calculatorApp.clickOperator('-')" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
             </div> 
         </div>
        
