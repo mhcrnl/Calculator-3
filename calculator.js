@@ -4,8 +4,7 @@ var calculatorState = {
     currentValue: '',
     previousValue: '',
     pendingOperator: ''
-
-};
+		};
 
 window.calculatorApp = {
   clickDigit: function(digit) {
@@ -16,8 +15,13 @@ window.calculatorApp = {
       }
       display.value = calculatorState.currentValue;
   },
-  clickDecimal: function(digit) {
-      alert('Decimal clicked: ' + digit);
+  clickDecimal: function() {
+		//add decimal if there is not already one in the number
+		//search() function returns 0 if a decimal is not found.	 
+			if( !calculatorState.currentValue.search('.') ) {
+					calculatorState.currentValue += '.';
+					display.value = calculatorState.currentValue;
+			}
   },
   clickOperator: function(op) {
      // alert('Operator clicked: ' + op);
@@ -60,6 +64,7 @@ window.calculatorApp = {
       calculatorState.currentValue = '';
 			calculatorState.previousValue = '';
 			calculatorState.pendingOperator = '';
+			calculatorState.hasDecimal = false;
 			display.value = '0';
   },
 }
