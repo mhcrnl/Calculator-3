@@ -5,7 +5,9 @@ var calculatorState = {
     previousValue: '',
     pendingOperator: ''
 };
-var currentComputation = 0;
+
+var decimal = false;
+
 window.calculatorApp = {
 	clickDigit: function (digit) {
       //if the user did not click 0 or the currentValue is not zero
@@ -17,43 +19,54 @@ window.calculatorApp = {
 	},
 	clickDecimal: function () {
 		//add decimal if there is not already one in the number
-		//search() function returns 0 if a decimal is not found.	 
-		if (!calculatorState.currentValue.search('.')) {
-			calculatorState.currentValue += '.';
-			display.value = calculatorState.currentValue;
+		//search() function returns -1 if a decimal is not found.
+        //for some reason, search was returning 0 instead of -1 like I expected
+		//var index = calculatorState.currentValue.search('.');
+		if (decimal === false) {
+			calculatorState.currentValue += '.';	
 		}
+        
+        display.value = calculatorState.currentValue;
 	},
 	clickOperator: function (op) {
 		// alert('Operator clicked: ' + op);
-		//if you already have a pending operator, then compute the value
-		if (calculatorState.pendingOperator) {
+		//if you already have a pending operator, then replace the operator with the new operator
+        
+        //if you already have a pending operator, then compute the value
+		if(op === '.') {
+            decimal = true;
+            calculatorApp.clickDecimal();
+        } else if (calculatorState.pendingOperator && calculatorState.currentValue !== '' ) {
 			this.clickEquals();
 		} else if (calculatorState.currentValue !== '') {
 			calculatorState.previousValue = calculatorState.currentValue;
 		}
-		calculatorState.pendingOperator = op;
-		calculatorState.currentValue = '';
-		//display.value = '0';
+		if(op !== '.') {
+            calculatorState.pendingOperator = op;
+            calculatorState.currentValue = '';
+        }
+
 	},
+    
 	clickEquals: function () {
 		// alert('clickEquals clicked: ' + op);
 		if (calculatorState.pendingOperator) {
-			var current = parseFloat(calculatorState.currentValue);
+			var current = parseFloat(calculatorState.currentValue);  
 			var prev = parseFloat(calculatorState.previousValue);
 			switch (calculatorState.pendingOperator) {
-				case '+':
+                case '+':
 					calculatorState.previousValue = prev + current;
 					break;
-			  case '-':
+                case '-':
 					calculatorState.previousValue = prev - current;
 					break;
-			  case '*':
+                case '*':
 					calculatorState.previousValue = prev * current;
 					break;
-			  case '/':
+                case '/':
 					calculatorState.previousValue = prev / current;
 					break;
-			  default:
+                default:
 					break;
 			}
 			calculatorState.currentValue = '';
@@ -65,6 +78,7 @@ window.calculatorApp = {
 		calculatorState.currentValue = '';
 		calculatorState.previousValue = '';
 		calculatorState.pendingOperator = '';
+        var decimal = false;
 		display.value = '0';
 	},
 	
@@ -74,7 +88,21 @@ window.calculatorApp = {
 			calculatorState.currentValue = '';
 		}
 		display.value = '0';
-	}
+	},
+    
+    clickMinusPlus: function () {
+        if (calculatorState.currentValue === null ||calculatorState.currentValue === "" ) {
+            calculatorState.currentValue = calculatorState.previousValue;
+        }
+        calculatorState.currentValue *= -1;
+        display.value = calculatorState.currentValue;
+    },
+    
+    clickCloseApp: function () {
+        if (window.confirm("Do you want to close the calculator?")) {
+            window.close();
+        }
+    }
 };
 
  

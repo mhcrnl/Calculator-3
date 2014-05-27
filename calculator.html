@@ -16,8 +16,8 @@
             <div id="buttonRow1" class="buttonRow"> 
                 <input type="button" id="clear" name="clear" value="c" onclick="calculatorApp.clickClear()" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
                 <input type="button" id="ce" name="ce" value="ce" onclick="calculatorApp.clickClearEntry()" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
-                <input type="button" id="plusminus" name="plusminus" value="+/-" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
-                <input type="button" id="close" name="close" value="x" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
+                <input type="button" id="plusminus" name="plusminus" value="+/-" onclick="calculatorApp.clickMinusPlus()" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
+                <input type="button" id="close" name="close" value="x" onclick="calculatorApp.clickCloseApp()" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')">
             </div> 
             <div id="buttonRow2" class="buttonRow"> 
                 <input type="button" id="num7" name="num7" onclick="calculatorApp.clickDigit(7)" value="7" class="numberButton" onmousedown="this.classList.add('pressed')" onmouseup="this.classList.remove('pressed')"> 
