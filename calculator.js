@@ -15,6 +15,9 @@ window.calculatorApp = {
 		if ((digit !== 0) || calculatorState.currentValue) {
 			calculatorState.currentValue += digit;
 		}
+		else if( digit === 0 && calculatorState.currentValue  === "") {
+			calculatorState.currentValue = 0;
+		}
         document.getElementById('display').value = calculatorState.currentValue;
 	},
 	clickDecimal: function () {
